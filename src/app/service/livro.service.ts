@@ -18,9 +18,9 @@ export class LivroService {
 
     return this.httpClient.get<LivrosResultado>(this.APIGoogle, { params })
       .pipe(
-        tap(retornoAPI => console.log('Tap no fluxo', retornoAPI)),   // tap: utilizado para debug não altera ou interfere nos dados no pipe
-        map(retornoAPI => retornoAPI.items),
-        tap(retornoAPI => console.log('Tap após o map', retornoAPI))
+        //tap(retornoAPI => console.log('Tap no fluxo', retornoAPI)),   // tap: utilizado para debug não altera ou interfere nos dados no pipe
+        map(retornoAPI => retornoAPI.items ?? []),  // ?? "se for nulo" retorna vazio []
+        //tap(retornoAPI => console.log('Tap após o map', retornoAPI))
       );
   }
 
