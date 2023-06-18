@@ -12,6 +12,16 @@ export class LivroService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // Método substitui o mais abaixo transferindo o resultado para quem recebe as informações
+  // (o "map" passa a ser feito por quem solicitou as informações)
+  buscar(termoPesquisa: string): Observable<LivrosResultado> {
+    // https://www.googleapis.com/books/v1/volumes?q=search+terms
+    const params = new HttpParams().append('q', termoPesquisa); // "q" é o parâmetro esperado no link do google acima
+
+    return this.httpClient.get<LivrosResultado>(this.APIGoogle, { params });
+  }
+
+/*
   buscar(termoPesquisa: string): Observable<Item[]> {
     // https://www.googleapis.com/books/v1/volumes?q=search+terms
     const params = new HttpParams().append('q', termoPesquisa); // "q" é o parâmetro esperado no link do google acima
@@ -23,5 +33,6 @@ export class LivroService {
         //tap(retornoAPI => console.log('Tap após o map', retornoAPI))
       );
   }
+*/
 
 }

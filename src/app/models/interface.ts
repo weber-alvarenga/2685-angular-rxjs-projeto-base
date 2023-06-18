@@ -16,7 +16,7 @@
 
   export interface LivrosResultado {
     items: Item[];
-    totalItens: number;
+    totalItems: number;
   }
 
   // Interfaces retornadas pela API do Google

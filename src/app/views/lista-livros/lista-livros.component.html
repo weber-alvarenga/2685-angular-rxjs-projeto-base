@@ -10,6 +10,9 @@
     </button>
   </div>
   <p>Busque por assunto, autoria, nome...</p>
+  <div class="resultados" *ngIf="listaLivros">
+    {{ listaLivros.totalItems }} resultados encontrados.
+  </div>
   <div class="resultados mensagem_erro" *ngIf="mensagemErro">
     {{ mensagemErro }}
   </div>
